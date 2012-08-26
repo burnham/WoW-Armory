@@ -827,7 +827,7 @@ Class Characters {
             'genderId'     => $this->gender,
             'guildName'    => ($this->guild_id > 0) ? $this->guild_name : null,
             'guildUrl'     => ($this->guild_id > 0) ? sprintf('r=%s&gn=%s', urlencode($this->GetRealmName()), urlencode($this->guild_name)) : null,
-            'lastModified' => null,
+            'lastModified' => date("d.m.Y H:i:s", time()),
             'level'        => $this->level,
             'name'         => $this->name,
             'points'       => $this->GetAchievementMgr()->GetAchievementPoints(),
@@ -1056,6 +1056,7 @@ Class Characters {
             case 'relic':
             case 'sigil':
             case 'gun':
+            case 'thrown':
                 return $this->equipmentCache[35];
                 break;
             case 'tabard':
